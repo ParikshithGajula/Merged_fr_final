@@ -1,0 +1,23 @@
+{
+  "name": "merged_final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:home\" \"npm run start:dash\" \"node server.js\"",
+    "start:home": "npm run --prefix \"Quantix_Systems_01-main/Quantix_Systems_01-main\" dev -- --port 3001 --host",
+    "start:dash": "npm run --prefix \"Quantix ui and ux/Quantix ui and ux\" dev -- --port 3002 --base=/dashboard/ --host",
+    "build:home": "npm run --prefix \"Quantix_Systems_01-main/Quantix_Systems_01-main\" build",
+    "build:dash": "npm run --prefix \"Quantix ui and ux/Quantix ui and ux\" build -- --base=/dashboard/",
+    "build": "npm run build:home && npm run build:dash"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "express": "^5.2.1",
+    "http-proxy-middleware": "^3.0.5"
+  }
+}

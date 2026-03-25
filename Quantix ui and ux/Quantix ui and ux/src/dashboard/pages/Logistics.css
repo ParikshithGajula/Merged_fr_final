@@ -1,0 +1,162 @@
+/* ========================================
+   Logistics Pages
+   ======================================== */
+
+/* Input Config */
+.logistics-config {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.logistics-config .full-width {
+  grid-column: 1 / -1;
+}
+
+.constraint-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.constraint-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--dash-bg);
+  border-radius: var(--dash-radius-xs);
+  font-size: 13px;
+}
+
+.constraint-toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--dash-bg-subtle);
+  position: relative;
+  cursor: pointer;
+  transition: background var(--dash-transition);
+  border: none;
+}
+
+.constraint-toggle.active {
+  background: var(--dash-accent);
+}
+
+.constraint-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: var(--dash-shadow-sm);
+  transition: transform var(--dash-transition);
+}
+
+.constraint-toggle.active::after {
+  transform: translateX(18px);
+}
+
+.algo-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.algo-card {
+  padding: 16px;
+  background: var(--dash-bg);
+  border: 2px solid transparent;
+  border-radius: var(--dash-radius-sm);
+  cursor: pointer;
+  transition: all var(--dash-transition);
+  text-align: center;
+}
+
+.algo-card:hover {
+  border-color: var(--dash-border-hover);
+}
+
+.algo-card.selected {
+  border-color: var(--dash-accent);
+  background: var(--dash-accent-bg);
+}
+
+.algo-card-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.algo-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dash-text-primary);
+}
+
+.algo-card-desc {
+  font-size: 11px;
+  color: var(--dash-text-tertiary);
+  margin-top: 4px;
+}
+
+.run-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  background: var(--dash-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--dash-border);
+  border-radius: var(--dash-radius);
+  margin-top: 24px;
+}
+
+.run-info {
+  font-size: 13px;
+  color: var(--dash-text-secondary);
+}
+
+.run-info strong {
+  color: var(--dash-text-primary);
+}
+
+/* Output */
+.logistics-output-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.logistics-output-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+.route-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.route-badge.optimal {
+  background: var(--dash-success-bg);
+  color: var(--dash-success);
+}
+
+.route-badge.suboptimal {
+  background: var(--dash-warning-bg);
+  color: var(--dash-warning);
+}
+
+@media (max-width: 1024px) {
+  .logistics-config,
+  .logistics-output-grid { grid-template-columns: 1fr; }
+  .algo-cards { grid-template-columns: 1fr; }
+}

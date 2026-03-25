@@ -1,0 +1,171 @@
+/* ========================================
+   Supply Chain Pages
+   ======================================== */
+
+.sc-config {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sc-config .full-width {
+  grid-column: 1 / -1;
+}
+
+/* Flow Diagram */
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+.flow-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background: var(--dash-surface-solid);
+  border: 1px solid var(--dash-border);
+  border-radius: var(--dash-radius-sm);
+  min-width: 100px;
+  transition: all var(--dash-transition);
+}
+
+.flow-node:hover {
+  border-color: var(--dash-accent);
+  box-shadow: var(--dash-shadow-glow);
+  transform: translateY(-2px);
+}
+
+.flow-node-icon {
+  font-size: 24px;
+}
+
+.flow-node-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--dash-text-primary);
+  text-align: center;
+}
+
+.flow-node-value {
+  font-size: 11px;
+  color: var(--dash-text-tertiary);
+}
+
+.flow-arrow {
+  font-size: 20px;
+  color: var(--dash-accent-light);
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+
+/* Heatmap */
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.heatmap-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  transition: transform var(--dash-transition);
+  cursor: pointer;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.15);
+  z-index: 1;
+}
+
+.heatmap-cell.level-0 { background: rgba(99, 102, 241, 0.05); color: var(--dash-text-tertiary); }
+.heatmap-cell.level-1 { background: rgba(99, 102, 241, 0.12); color: var(--dash-accent); }
+.heatmap-cell.level-2 { background: rgba(99, 102, 241, 0.25); color: var(--dash-accent); }
+.heatmap-cell.level-3 { background: rgba(99, 102, 241, 0.4); color: white; }
+.heatmap-cell.level-4 { background: rgba(99, 102, 241, 0.6); color: white; }
+.heatmap-cell.level-5 { background: rgba(99, 102, 241, 0.85); color: white; }
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--dash-text-tertiary);
+}
+
+.heatmap-legend-cell {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+/* Inventory cards */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.inventory-card {
+  padding: 16px;
+  background: var(--dash-bg);
+  border-radius: var(--dash-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all var(--dash-transition);
+}
+
+.inventory-card:hover {
+  background: var(--dash-accent-bg);
+}
+
+.inventory-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.inventory-info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.inventory-info p {
+  font-size: 12px;
+  color: var(--dash-text-tertiary);
+}
+
+.sc-output-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sc-output-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1024px) {
+  .sc-config,
+  .sc-output-grid { grid-template-columns: 1fr; }
+  .inventory-grid { grid-template-columns: 1fr; }
+  .flow-diagram { flex-wrap: wrap; }
+}

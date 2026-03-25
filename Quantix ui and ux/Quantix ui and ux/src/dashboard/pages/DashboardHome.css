@@ -1,0 +1,196 @@
+/* ========================================
+   Dashboard Home
+   ======================================== */
+.dash-home-hero {
+  background: var(--dash-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--dash-border);
+  border-radius: var(--dash-radius);
+  padding: 36px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dash-home-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.dash-home-hero h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.dash-home-hero p {
+  font-size: 15px;
+  color: var(--dash-text-secondary);
+  max-width: 600px;
+  position: relative;
+}
+
+/* Module Cards */
+.module-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.module-card {
+  background: var(--dash-surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--dash-border);
+  border-radius: var(--dash-radius);
+  padding: 28px;
+  cursor: pointer;
+  transition: all var(--dash-transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+}
+
+.module-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transition: all var(--dash-transition);
+}
+
+.module-card.logistics::after { background: linear-gradient(90deg, #3b82f6, #6366f1); }
+.module-card.supply-chain::after { background: linear-gradient(90deg, #10b981, #06b6d4); }
+.module-card.portfolio::after { background: linear-gradient(90deg, #8b5cf6, #ec4899); }
+
+.module-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--dash-shadow-lg);
+  border-color: var(--dash-border-hover);
+}
+
+.module-card:hover::after {
+  height: 4px;
+}
+
+.module-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.module-card.logistics .module-card-icon { background: var(--dash-info-bg); }
+.module-card.supply-chain .module-card-icon { background: var(--dash-success-bg); }
+.module-card.portfolio .module-card-icon { background: var(--dash-accent-bg); }
+
+.module-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--dash-text-primary);
+}
+
+.module-card p {
+  font-size: 13px;
+  color: var(--dash-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.module-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.module-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.module-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dash-success);
+}
+
+.module-arrow {
+  font-size: 18px;
+  color: var(--dash-text-tertiary);
+  transition: transform var(--dash-transition);
+}
+
+.module-card:hover .module-arrow {
+  transform: translateX(4px);
+  color: var(--dash-accent);
+}
+
+/* Activity & Stats */
+.dash-home-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.activity-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--dash-border);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.activity-dot.blue { background: var(--dash-info); }
+.activity-dot.green { background: var(--dash-success); }
+.activity-dot.purple { background: var(--dash-accent); }
+
+.activity-text {
+  font-size: 13px;
+  color: var(--dash-text-secondary);
+  line-height: 1.5;
+}
+
+.activity-text strong {
+  color: var(--dash-text-primary);
+}
+
+.activity-time {
+  font-size: 11px;
+  color: var(--dash-text-tertiary);
+  margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+  .module-cards-grid { grid-template-columns: 1fr; }
+  .dash-home-bottom { grid-template-columns: 1fr; }
+}
